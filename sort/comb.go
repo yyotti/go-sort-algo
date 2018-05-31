@@ -1,13 +1,8 @@
 package sort
 
-type combSorter struct {
-	src []Comparable
-}
-
-// Sort returns slice sorted by `Comb sort`
+// CombSort returns slice sorted by `Comb sort`
 // https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A0%E3%82%BD%E3%83%BC%E3%83%88
-func (b combSorter) Sort() {
-	src := b.src
+func CombSort(src []Comparable) []Comparable {
 	l := len(src)
 	h := l
 
@@ -25,14 +20,6 @@ func (b combSorter) Sort() {
 			}
 		}
 	}
-}
 
-// NewCombSorter returns combSorter instance
-func NewCombSorter(src []Comparable) Sorter {
-	s := make([]Comparable, 0, len(src))
-	copy(s, src)
-
-	return combSorter{
-		src: s,
-	}
+	return src
 }

@@ -1,14 +1,8 @@
 package sort
 
-type shakerSorter struct {
-	src []Comparable
-}
-
-// Sort returns slice sorted by `Shaker sort`
+// ShakerSort returns slice sorted by `Shaker sort`
 // https://ja.wikipedia.org/wiki/%E3%82%B7%E3%82%A7%E3%83%BC%E3%82%AB%E3%83%BC%E3%82%BD%E3%83%BC%E3%83%88
-func (b shakerSorter) Sort() {
-	src := b.src
-
+func ShakerSort(src []Comparable) []Comparable {
 	top := 0
 	bottom := len(src) - 1
 
@@ -47,14 +41,6 @@ func (b shakerSorter) Sort() {
 			break
 		}
 	}
-}
 
-// NewShakerSorter returns shakerSorter instance
-func NewShakerSorter(src []Comparable) Sorter {
-	s := make([]Comparable, 0, len(src))
-	copy(s, src)
-
-	return shakerSorter{
-		src: s,
-	}
+	return src
 }

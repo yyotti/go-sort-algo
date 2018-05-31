@@ -5,7 +5,5 @@ type Comparable interface {
 	IsLessThan(c Comparable) bool
 }
 
-// Sorter interface
-type Sorter interface {
-	Sort()
-}
+// SorterFunc function
+type SorterFunc func([]Comparable) []Comparable
